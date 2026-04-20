@@ -1,0 +1,67 @@
+{
+  "name": "@iamt3z/mockly",
+  "version": "1.0.0",
+  "description": "TypeScript-first mock data generator with relational support, fluent API, seeded randomness, and built-in JSON/CSV exporters",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/cjs/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs --declaration true",
+    "build:esm": "tsc --module es2022 --outDir dist/esm --declaration false",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build:watch": "tsc --watch",
+    "prepare": "npm run build",
+    "pack": "npm pack",
+    "link": "npm link",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "prepublishOnly": "npm run build",
+    "publish:dry": "npm publish --dry-run"
+  },
+  "keywords": [
+    "mock",
+    "typescript",
+    "faker",
+    "test-data",
+    "mock-data",
+    "generator",
+    "seeded",
+    "relational",
+    "join",
+    "csv",
+    "json",
+    "fluent-api"
+  ],
+  "author": "Your Name <you@email.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamt3z/mockly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamt3z/mockly/issues"
+  },
+  "homepage": "https://github.com/iamt3z/mockly#readme",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@vitest/ui": "^4.1.4",
+    "rimraf": "^5.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.4"
+  }
+}
